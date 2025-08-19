@@ -58,6 +58,10 @@ as well.
             s = "Not an";
             t = "anagram!";
             Test(s, t);
+
+            s = "rant";
+            t = "trans";
+            Test(s, t);
         }
 
         static void Test(string s, string t)
@@ -97,7 +101,11 @@ as well.
                 }
             }
 
-            // compare that dictionaries sChars and tChars are the same
+            // check that dictionaries sChars and tChars have the same number of keys
+            if (sChars.Keys.Count != tChars.Keys.Count)
+                return false;
+
+            // check that dictionaries sChars and tChars keys and key values are the same
             foreach (var key in sChars.Keys)
             {
                 if (tChars.ContainsKey(key))
